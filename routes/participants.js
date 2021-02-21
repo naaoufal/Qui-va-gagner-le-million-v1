@@ -1,14 +1,17 @@
 const express = require("express")
 const routerParticipants = express.Router()
-
-// // declare our routes
-const { register, all } = require("../controllers/participants")
-
+const partiCon = require("../controllers/participants")
+const auth = require("../midlleware/auth")
 
 
-routerParticipants.get("/all", all)
 
-routerParticipants.post("/register", register)
+routerParticipants.get("/all", auth, partiCon.all)
+
+routerParticipants.post("/register", partiCon.register)
+
+routerParticipants.patch("/edit/:id", auth, partiCon.edit)
+
+routerParticipants.post("/authGroup", partiCon.login)
 
 
 module.exports = routerParticipants

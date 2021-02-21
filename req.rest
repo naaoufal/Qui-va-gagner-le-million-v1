@@ -1,5 +1,108 @@
 GET http://localhost:4000/api/participants/all
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTM5MTc4OTd9.peZUllbTY4WDB8r50e0OLV2SAdXRpmYo0Ed_CEOM6TI
 
 ###
 
-POST http://localhost:4000/api/participants/register
+# PATCH http://localhost:4000/api/participants/edit/602fadac4d77533ef4d438c7
+# Content-Type: application/json
+
+# {
+#     "is_valid" : true,
+#     "online" : true
+# }
+
+###
+GET http://localhost:4000/api/admins/all
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTM5MTc4OTd9.peZUllbTY4WDB8r50e0OLV2SAdXRpmYo0Ed_CEOM6TI
+
+
+###
+
+POST http://localhost:4000/api/admins/addOne
+Authorization: bearer 
+Content-Type: application/json
+
+{
+    "fullname" : "test2",
+    "phone" : 123321133,
+    "password" : "azer"
+}
+
+
+###
+
+POST http://localhost:4000/api/admins/login
+Content-Type: application/json
+
+{
+    "phone" : 600112233,
+    "password" : "0000"
+}
+
+###
+
+# POST http://localhost:4000/api/admins/addOne
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmdWxsIjoibmFvdWZhbCIsImlhdCI6MTYxMzczNjMxMX0.-EvV0hIF_JiOagY1mxxn-deSnaAL-kiKhsmb2_7kV3k
+# Content-Type: application/json
+
+# {
+#     "fullname" : "test1",
+#     "phone" : 614675855,
+#     "password" : "1234azer"
+# }
+
+
+###
+
+GET http://localhost:4000/api/questions/all
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTM4NDg4NDl9.MBnFRzmhDO-dQ36sxJ9Yii5579QBqxFL_l8Dapvfnss
+
+###
+
+POST http://localhost:4000/api/questions/add
+Authorization: bearer 
+Content-Type: application/json
+
+{
+    "quest" : "guess my favorite language",
+    "answer" : "arabe",
+    "points" : 10
+}
+
+###
+
+GET http://localhost:4000/api/groups/all
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoidGVzdDEiLCJpYXQiOjE2MTM5MjAzNzB9.xzixLYQjR28odBCo1hVfgx4hf6Hz3RfQTUSVqhGDlNg
+
+###
+
+
+POST http://localhost:4000/api/groups/add
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoidGVzdDEiLCJpYXQiOjE2MTM5MjAzNzB9.xzixLYQjR28odBCo1hVfgx4hf6Hz3RfQTUSVqhGDlNg
+Content-Type: application/json
+
+{
+    "idparticipant" : "602fadac4d77533ef4d438c8",
+    "groupcode": 1234
+}
+
+
+###
+
+POST http://localhost:4000/api/participants/authGroup
+Content-Type: application/json
+
+{
+    "fullname" : "test1"
+}
+
+###
+
+POST http://localhost:4000/api/groups/joinGroup
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoidGVzdDEiLCJpYXQiOjE2MTM5MjAzNzB9.xzixLYQjR28odBCo1hVfgx4hf6Hz3RfQTUSVqhGDlNg
+Content-Type: application/json
+
+{
+    "idparticipant" : "602fadac4d77533ef4d438c8",
+    "groupcode": 1234
+}
