@@ -82,8 +82,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoid
 Content-Type: application/json
 
 {
-    "idparticipant" : "602fadac4d77533ef4d438c8",
-    "groupcode": 1234
+    "idparticipant" : "602fadac4d77533ef4d438c9",
+    "groupcode": 9999
 }
 
 
@@ -103,6 +103,6 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoid
 Content-Type: application/json
 
 {
-    "idparticipant" : "602fadac4d77533ef4d438c8",
-    "groupcode": 1234
+    "idparticipant" : "602fadac4d77533ef4d438c7",
+    "groupcode": 9999
 }
