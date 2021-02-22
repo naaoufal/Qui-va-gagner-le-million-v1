@@ -1,5 +1,6 @@
 const { json } = require('body-parser')
 const Groups = require('../models/groups')
+const participants = require('../models/participants')
 
 // create new groupe with validation
 function add (req, res) {

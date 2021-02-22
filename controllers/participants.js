@@ -1,6 +1,16 @@
 const Participants = require('../models/participants')
+const nodemailer = require('nodemailer')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
+
+// node mailer
+var transporter = nodemailer.createTransport({
+    service : 'gmail',
+    auth : {
+        user : process.env.GMAIL_USER,
+        pass : process.env.GMAIL_PASSWORD
+    }
+})
 
 async function register (req, res) {
     const participants = new Participants({
@@ -26,11 +36,27 @@ async function edit (req, res) {
     }
     const id = req.params.id
     Participants.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).then(data => {
+        console.log(data.email)
         if (!data) {
             res.send({
               message: `they is no participant !`
             });
-          } else res.send({ message: "participant is updated successfully." })
+          } else {
+            res.send({ message: "participant is updated successfully." })
+            var mailOptions = {
+                from : process.env.GMAIL_USER,
+                to : data.email,
+                subject : 'You Account is Activated',
+                text : `We just want to informe you that your account is online and valide now go check that`
+            }
+            transporter.sendMail(mailOptions, function(err, info) {
+                if(err){
+                    res.json({message : err.message})
+                } else {
+                    res.json({message : "Email send to participant"})
+                }
+            })
+          }
     })
 }
 
