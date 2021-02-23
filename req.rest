@@ -121,3 +121,16 @@ Content-Type: application/json
     "idquestion" : "1234",
     "idquestiontoken" : "1234"
 }
+
+###
+GET http://localhost:4000/api/questionTokens/all
+
+###
+POST http://localhost:4000/api/questionTokens/addToken
+Content-Type: application/json
+
+{
+    "idquestion" : "1",
+    "participantanswer" : "24",
+    "idparticipant" : "1234"
+}
