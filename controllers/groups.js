@@ -33,23 +33,17 @@ function joinGroup (req, res) {
         idparticipant : req.body.idparticipant,
         groupcode : req.body.groupcode
     })
-    const query = {idparticipant : groups.idparticipant, groupcode : groups.groupcode}
-    //console.log(query)
+    const query = {groupcode : groups.groupcode}
     Groups.find(query, async (err, data) => {
-        var code = data.map((info) => {
+        const code = data.map(info => {
             return info.groupcode
         })
-        var part_id = data.map((info) => {
-            return info.idparticipant
-        })
-        console.log(part_id.length)
         console.log(code.length)
-        if(code.length >= 4 || part_id.length >= 1) {
-            //console.log("hbess")
-            res.json({message : "Group Full Or You ALready Join this Group !!!"})
+        if(code.length >= 4){
+            res.json({message : "Group is Full !!!"})
         } else {
-            const joinGroup = await groups.save()
-            res.json(joinGroup)
+            groups.save()
+            res.json({message : "You Can Enter to The Group"})
         }
     })
 }

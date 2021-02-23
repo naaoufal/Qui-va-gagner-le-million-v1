@@ -103,6 +103,21 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoib
 Content-Type: application/json
 
 {
-    "idparticipant" : "602fadac4d77533ef4d438c1",
-    "groupcode": 999
+    "idparticipant" : "602fadac4d77533ef4d438c9",
+    "groupcode": 99
+}
+
+###
+
+GET http://localhost:4000/api/rounds/all
+
+###
+
+POST http://localhost:4000/api/rounds/addRound
+Content-Type: application/json
+
+{
+    "idgroupmember" : "1234",
+    "idquestion" : "1234",
+    "idquestiontoken" : "1234"
 }

@@ -12,6 +12,7 @@ app.use("/api/participants", require("./routes/participants.js"))
 app.use("/api/admins", require("./routes/admins.js"))
 app.use("/api/questions", require("./routes/questions.js"))
 app.use("/api/groups", require("./routes/groups.js"))
+app.use("/api/rounds", require("./routes/rounds.js"))
 
 
 // start the server
