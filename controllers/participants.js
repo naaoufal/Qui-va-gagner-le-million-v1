@@ -1,7 +1,40 @@
 const Participants = require('../models/participants')
 const nodemailer = require('nodemailer')
+const winston = require('winston')
 const jwt = require('jsonwebtoken')
+const logs = require('../models/log');
 require('dotenv').config()
+
+// handle data to log collection
+const log = (data, logs) => {
+    return new logs({
+        time: new Date(),
+        file: data.file,
+        line: data.line,
+        info: data.info,
+        type: data.type
+    }).save()
+}
+
+// add log file
+const logConfig = {
+    transports: [
+      new winston.transports.Console(),
+      new winston.transports.File({
+        filename: "./logger/logfile.log",
+      }),
+    ],
+}
+const myLogger = winston.createLogger(logConfig)
+
+// config time
+var date = new Date();
+var day = date.getDate();
+var month = date.getMonth() + 1; //As January is 0.
+var year = date.getFullYear();
+var hour = date.getHours();
+var minute = date.getMinutes();
+var second = date.getSeconds();
 
 // node mailer
 var transporter = nodemailer.createTransport({
@@ -64,8 +97,30 @@ async function all (req, res) {
     try {
         const participants = await Participants.find()
         res.json(participants)
+        myLogger.log({
+            message:"Participant found",
+            level: ["info"],
+            Date: day + "/" + month + "/" + year + " " + hour + ":" + minute + ":" + second,
+        })
+        log({
+            file: 'server.js',
+            line: '10',
+            info: "Participant Found",
+            type: 'critical'
+        }, logs);
     } catch (err) {
         res.json({message : err.message})
+        myLogger.log({
+            message: error.message,
+            level: ["error"],
+            Date: day + "/" + month + "/" + year + " " + hour + ":" + minute + ":" + second,
+        })
+        log({
+            file: 'server.js',
+            line: '10',
+            info: error,
+            type: 'critical'
+        }, logs);
     }
 }
 
