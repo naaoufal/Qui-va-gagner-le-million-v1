@@ -2,6 +2,22 @@ GET http://localhost:4000/api/participants/all
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTQxNTU5MzF9.KZiZZUD9uNIRlkiJWaCsKJQTREVfaWDdhjjSCRptJU8
 ###
 
+POST http://localhost:4000/api/participants/register
+Content-Type: application/json
+
+{
+    "fullname" : "naoufal",
+    "age" : 24,
+    "email" : "naoufelbenmensour@gmail.com",
+    "phone" : 614675855,
+    "is_valid" : false,
+    "online" : false,
+    "password" : "azer",
+    "score" : 0
+}
+
+###
+
 PATCH http://localhost:4000/api/participants/edit/602fadac4d77533ef4d438c7
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTM5ODg4NjF9._xSAO9Cu8x6ksCqEM4q8ACe15qtigaZWaRLSXGdmvIQ
 Content-Type: application/json
@@ -104,8 +120,8 @@ POST http://localhost:4000/api/rounds/addRound
 Content-Type: application/json
 
 {
-    "idgroupmember" : "111",
-    "idquestion" : "6035a10196764b366ce37531",
+    "idgroupmember" : "1111",
+    "idquestion" : "6035a10196764b366ce37533",
     "idquestiontoken" : "1234"
 }
 

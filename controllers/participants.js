@@ -53,7 +53,8 @@ async function register (req, res) {
         phone : req.body.phone,
         is_valid : req.body.is_valid,
         online : req.body.online,
-        password : req.body.password
+        password : req.body.password,
+        score : req.body.score
     })
     try {
         const newParticipant = await participants.save()
