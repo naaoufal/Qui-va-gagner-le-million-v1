@@ -29,6 +29,10 @@ const participantSchema = new mongoose.Schema({
     password : {
         type : String,
         required : true
+    },
+    score : {
+        type : Number,
+        required : true
     }
 
 })
