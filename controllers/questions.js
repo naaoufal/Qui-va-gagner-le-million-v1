@@ -23,8 +23,18 @@ async function all (req, res) {
     }
 }
 
+async function ShowRandomQuestions (req, res) {
+    try {
+        const ranQuestion=  await Questions.aggregate([{ $sample: { size: 1 } }]);
+        res.json(ranQuestion)
+        console.log(ranQuestion)
+    } catch (error) {
+        res.json({ message : error.message });
+    }
+}
 
 module.exports = {
     add,
-    all
+    all,
+    ShowRandomQuestions
 }

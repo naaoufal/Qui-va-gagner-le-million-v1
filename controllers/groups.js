@@ -39,7 +39,7 @@ function joinGroup (req, res) {
             return info.groupcode
         })
         console.log(code.length)
-        if(code.length >= 4){
+        if(code.length >= 2){
             res.json({message : "Group is Full !!!"})
         } else {
             groups.save()
