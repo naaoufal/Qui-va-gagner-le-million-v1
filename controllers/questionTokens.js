@@ -44,17 +44,22 @@ async function createOne (req, res) {
                 return info.idparticipant
             })
 
+
             var ts = idparti.includes(quesTokens.idparticipant)
+            var x = 10
+            var myquery = {$set : {score : x}}
+
+            console.log(myquery)
 
             if(!ts){
                 res.json({message : "You Enter a Invalid User ID"})
             } else {
                 try {
                     if(finalts){
-                        // Participant.findById().then(data => {
-                        //     console.log(data)
-                        // })
-                        const newQuesTokens = quesTokens.save()
+                        Participant.findByIdAndUpdate(quesTokens.idparticipant, myquery).then(data => {
+                            console.log(data.score)
+                        })
+                        //const newQuesTokens = quesTokens.save()
                         //res.json(newQuesTokens)
                         res.json({message : "Answer Correct !!!"})
                     } else {

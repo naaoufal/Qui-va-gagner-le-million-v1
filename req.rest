@@ -137,3 +137,14 @@ Content-Type: application/json
     "participantanswer" : "24",
     "idparticipant" : "6036e1e4fea2275f04cc6577"
 }
+
+###
+GET http://localhost:4000/api/winners/all
+
+###
+POST http://localhost:4000/api/winners/addWinner
+Content-Type: application/json
+
+{
+    
+}

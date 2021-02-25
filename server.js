@@ -14,6 +14,7 @@ app.use("/api/questions", require("./routes/questions.js"))
 app.use("/api/groups", require("./routes/groups.js"))
 app.use("/api/rounds", require("./routes/rounds.js"))
 app.use("/api/questionTokens", require("./routes/questionTokens.js"))
+app.use("/api/winners", require("./routes/winners.js"))
 
 
 // start the server
