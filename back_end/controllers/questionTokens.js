@@ -59,7 +59,7 @@ async function createOne (req, res) {
                         Participant.findByIdAndUpdate(quesTokens.idparticipant, myquery).then(data => {
                             console.log(data.score)
                         })
-                        //const newQuesTokens = quesTokens.save()
+                        const newQuesTokens = quesTokens.save()
                         //res.json(newQuesTokens)
                         res.json({message : "Answer Correct !!!"})
                     } else {

@@ -2,17 +2,12 @@ const Winners = require('../models/winners')
 const Group = require('../models/groups')
 
 async function all (req, res) {
-    // try {
-    //     const winners = await Winners.find()
-    //     res.json(winners)
-    // } catch (error) {
-    //     res.json({message : error.message})
-    // }
-
-    // test field :
-    const query = {_id : }
-    Group.find()
-
+    try {
+        const winners = await Winners.find()
+        res.json(winners)
+    } catch (error) {
+        res.json({message : error.message})
+    }
 }
 
 async function createOne (req, res) {

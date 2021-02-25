@@ -2,7 +2,6 @@ const express = require('express')
 const routerQuestions = express.Router()
 const access = require('../midlleware/auth')
 const questCon = require('../controllers/questions')
-const router = require('../../../mcdonald/routes/cards')
 
 
 
