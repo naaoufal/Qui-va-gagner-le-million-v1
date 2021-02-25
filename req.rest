@@ -6,12 +6,12 @@ POST http://localhost:4000/api/participants/register
 Content-Type: application/json
 
 {
-    "fullname" : "naoufal",
+    "fullname" : "test2",
     "age" : 24,
-    "email" : "naoufelbenmensour@gmail.com",
+    "email" : "test2@gmail.com",
     "phone" : 614675855,
-    "is_valid" : false,
-    "online" : false,
+    "is_valid" : true,
+    "online" : true,
     "password" : "azer",
     "score" : 0
 }
@@ -81,12 +81,12 @@ Authorization: bearer
 
 
 POST http://localhost:4000/api/groups/add
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoidGVzdDEiLCJpYXQiOjE2MTQxNTYxNzd9.HpkIXHyG8Pi0vYeoO47eWB_A8cFpyIYQ2budXeEqa_A
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxNDIxNjAyM30.jubT2Yu6AeXZVt2LuSikvdchEu2AMusKeVzeLA7GE4Y
 Content-Type: application/json
 
 {
-    "idparticipant" : "602fadac4d77533ef4d438c2",
-    "groupcode": 8888
+    "idparticipant" : "6036e1e4fea2275f4cc6578",
+    "groupcode": 888
 }
 
 
@@ -96,18 +96,18 @@ POST http://localhost:4000/api/participants/authGroup
 Content-Type: application/json
 
 {
-    "fullname" : "test1"
+    "fullname" : "naoufal"
 }
 
 ###
 
 POST http://localhost:4000/api/groups/joinGroup
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxMzk4OTMzOH0.UXMJblIF45iVNMRsN42fW0-AlGAed-A5KDiq0rEj9BI
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxNDIxNjAyM30.jubT2Yu6AeXZVt2LuSikvdchEu2AMusKeVzeLA7GE4Y
 Content-Type: application/json
 
 {
-    "idparticipant" : "602fadac4d77533ef4d438c9",
-    "groupcode": 8888
+    "idparticipant" : "6036e1e4fea2275f04cc6577",
+    "groupcode" : 8888 
 }
 
 ###
@@ -133,7 +133,7 @@ POST http://localhost:4000/api/questionTokens/addToken
 Content-Type: application/json
 
 {
-    "idquestion" : "1",
+    "idquestion" : "60315e60bce5524bd0ce71a8",
     "participantanswer" : "24",
-    "idparticipant" : "1234"
+    "idparticipant" : "6036e1e4fea2275f04cc6577"
 }
