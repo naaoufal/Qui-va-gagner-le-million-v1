@@ -1,31 +1,56 @@
 import '../App.css';
-import Register from './Register';
 import { BrowserRouter as Router, Link, Route } from 'react-dom';
+import React, { useEffect, useState } from "react";
+import Home from './Home';
+import  { Redirect } from 'react-router-dom';
 
 function Login () {
-    return (
-        <Router>
-        <form id="formulaire">
-            <div className="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div className="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" />
-            </div>
-            <div className="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-                <button type="submit" class="btn btn-primary"><Link to="/Register">Submit</Link></button>
-      </form>
 
-    //   define routes
-    <Route path="/Register" component={Register}></Route>
-    </Router>
+    // declare globale variables
+    const [ph, setPhone] = useState()
+    const [pass, setPassword] = useState()
+
+    
+
+    function clickme() {
+
+        // test field :
+        console.log(ph, pass)
+
+        fetch("http://localhost:3001/api/admins/login", {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify({
+                phone : ph,
+                password : pass 
+            })
+        }).then(res => {
+            return res.json()
+        }).then(data => {
+            console.log(data.accessToken)
+            if(data.accessToken){
+                console.log("rak dkhlti")
+            } else {
+                console.log("sir hta t9yd")
+            }
+        })
+    }
+
+    return (
+        <div id="formulaire">
+            <div className="mb-3">
+                <label for="" class="form-label">Phone</label>
+                <input type="text" class="form-control" onChange={event => setPhone(event.target.value)} />
+            </div>
+            <div className="mb-3">
+                <label for="" class="form-label">Password</label>
+                <input type="password" class="form-control" onChange={event => setPassword(event.target.value)} />
+            </div>
+            <button type="submit" onClick={clickme} class="btn btn-primary">Submit</button>
+      </div>
     );
 }
 
-export default Login;
+export default Login
