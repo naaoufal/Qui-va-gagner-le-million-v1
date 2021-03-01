@@ -1,15 +1,20 @@
 import './App.css';
+import Dashboard from './components/Dashboard';
+import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Login from './components/Login';
-//import Register from './components/Register';
-//import { BrowserRouter as Router, Route, Link } from 'react-dom';
+
+
 
 function App() {
   return (
-    <div className="container">
-      {/* register form */}
-      <Login />
-      {/* <Register /> */}
-    </div>
+    <Router>
+      <div className="container">
+        <Switch>
+          <Route path="/Login" exact component={Login} />
+          <Route path="/Dashboard" exact component={Dashboard} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
