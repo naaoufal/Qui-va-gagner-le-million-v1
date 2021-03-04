@@ -1,8 +1,6 @@
-import '../App.css';
+import '../Login.css';
 import { BrowserRouter as Router, Link, Route } from 'react-dom';
 import React, { useEffect, useState } from "react";
-import  { Redirect } from 'react-router-dom';
-import Dashboard from './Dashboard';
 
 function Login (redi) {
 
@@ -31,7 +29,7 @@ function Login (redi) {
         }).then(data => {
             //console.log(data.accessToken)
             if(data.accessToken){
-                const token = localStorage.setItem('tokenaccess', data.accessToken)
+                localStorage.setItem('tokenaccess', data.accessToken)
                 //console.log("rak dkhlti")
                 fetch("http://localhost:3001/api/admins/all", {
                     method : 'GET',
@@ -45,14 +43,14 @@ function Login (redi) {
                     info.map(admin => {
                         //console.log(admin)
                         if(admin.phone == ph && admin.password === pass){
-                            console.log("t9der tdkhl db", admin.phone, admin.password);
+                            console.log("You Can Access Now With : ", admin.phone, admin.password);
                             // check for state
                             redi.history.push('/Dashboard')
                         }
                     })
                 })
             } else {
-                alert("dakchi lidklti machi s7i7")
+                alert("Error In Login")
                 clearInput()
             }
         })
@@ -64,29 +62,20 @@ function Login (redi) {
     }
 
     return (
-    <div className="login-form">
-        <div className="panel panel-primary">
-            <div className="panel-body">
-                <h2>Login</h2>
+        <div id="login">
+            <div className="container bootstrap snippets bootdey">
+                <div class="lc-block col-md-4 col-md-offset-4 toggled" id="l-login">
+                    <div class="form-group">
+                        <input type="text" onChange={event => setPhone(event.target.value)} class="form-control" placeholder="Enter Your Phone"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" className="form-control" onChange={event => setPassword(event.target.value)} placeholder="Enter Your Password" />
+                    </div>
+                    <div class="clearfix"></div>
+                    <button href="" onClick={clickme} class="btn btn-block btn-primary btn-float m-t-25">Log In</button>
+                </div>
             </div>
         </div>
-        <br/>
-        <div className="panel panel-default">
-            <div className="panel-body">
-                <div>
-                    <div className="input-group login-userinput">
-                        <span className="input-group-addon"><span className="glyphicon glyphicon-user"></span></span>
-                        <input id="phone" type="text" className="form-control" onChange={event => setPhone(event.target.value)} />
-                    </div>
-                    <div className="input-group">
-                        <span className="input-group-addon"><span className="glyphicon glyphicon-lock"></span></span>
-                        <input id="password" type="password" className="form-control" onChange={event => setPassword(event.target.value)} />
-                    </div>
-                    <button type="submit" onClick={clickme} className="btn btn-primary btn-block login-button">Login</button>	
-                </div>			
-            </div>
-        </div>
-    </div>
     );
 }
 

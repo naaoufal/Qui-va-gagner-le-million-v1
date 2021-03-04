@@ -2,7 +2,7 @@ const Participants = require('../models/participants')
 const nodemailer = require('nodemailer')
 const winston = require('winston')
 const jwt = require('jsonwebtoken')
-const logs = require('../models/log');
+const logs = require('../models/log')
 require('dotenv').config()
 
 // handle data to log collection
@@ -94,6 +94,15 @@ async function edit (req, res) {
     })
 }
 
+async function show (req, res){
+    try {
+        const par = await Participants.find()
+        res.json(par)
+    } catch (error) {
+        res.json({message : error.message})
+    }
+}
+
 async function all (req, res) {
     try {
         const participants = await Participants.find()
@@ -148,5 +157,6 @@ module.exports = {
     register,
     edit,
     all,
-    login
+    login,
+    show
 }

@@ -1,5 +1,6 @@
 const Rounds = require('../models/rounds')
-
+const Group = require('../models/groups')
+const Participant = require('../models/participants')
 async function all (req, res) {
     try {
         const rounds = await Rounds.find()
@@ -19,6 +20,7 @@ async function createOne (req, res) {
     // test field for round:
 
     const query = {idgroupmember : rounds.idgroupmember}
+    //const query1 = {groupcode : rounds.idgroupmember}
 
     Rounds.find(query, async (err, data) => {
         var id = data.map(info => {
@@ -33,7 +35,8 @@ async function createOne (req, res) {
         console.log(idroun, ts, rounds.idquestion)
 
         if(id.length >= 3){
-            res.json({message : "Round Is Ended"})
+            Group.find()
+            //res.json({message : "Round Is Ended"})
         } else {
             //console.log("Ba9i masalach round")
             try {

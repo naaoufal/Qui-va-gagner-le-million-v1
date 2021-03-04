@@ -2,6 +2,7 @@ const QuestionTokens = require('../models/questionTokens')
 const Questions = require('../models/questions')
 const Participant = require('../models/participants')
 const Groups = require('../models/groups')
+const Winners = require('../models/winners')
 
 async function all (req, res) {
     try {
@@ -35,10 +36,6 @@ async function createOne (req, res) {
 
         var finalts = answ.includes(quesTokens.participantanswer)
 
-        
-
-        //console.log(idques, answ)
-
         Groups.find(query, (err, data) => {
             var idparti = data.map(info => {
                 return info.idparticipant
@@ -46,21 +43,23 @@ async function createOne (req, res) {
 
 
             var ts = idparti.includes(quesTokens.idparticipant)
-            var x = 10
-            var myquery = {$set : {score : x}}
+            //var myquery = {$set : {score : 90}}
 
-            console.log(myquery)
+            //console.log(myquery)
 
             if(!ts){
                 res.json({message : "You Enter a Invalid User ID"})
             } else {
                 try {
                     if(finalts){
-                        Participant.findByIdAndUpdate(quesTokens.idparticipant, myquery).then(data => {
-                            console.log(data.score)
+                        Participant.findById(quesTokens.idparticipant).then(data => {
+                            console.log("the current score of participant " + data._id + " is : " + data.score)
+                            var myquery = {$set : {score : data.score + 10}}
+                            Participant.findByIdAndUpdate(quesTokens.idparticipant, myquery).then(dt => {
+                                console.log(dt.score)
+                            })
+                            newQuesTokens = quesTokens.save()
                         })
-                        const newQuesTokens = quesTokens.save()
-                        //res.json(newQuesTokens)
                         res.json({message : "Answer Correct !!!"})
                     } else {
                         res.json({message : "Answer Is not Correct"})
@@ -71,16 +70,67 @@ async function createOne (req, res) {
             }
         })
     })
+}
 
-    // try {
-    //     const newQuesTokens = await quesTokens.save()
-    //     res.json(newQuesTokens)
-    // } catch (error) {
-    //     res.json({message : error.message})
-    // }
+function endOfQuestions (req, res) {
+
+    // const winner = new Winners({
+    //     idparticipant : req.body.idparticipant,
+    //     idgroup : req.body.idgroup,
+    //     score : req.body.score
+    // })
+
+    try {
+        Groups.find().then(data => {
+
+            var code = data.map(i => {
+                return i.groupcode
+            })
+
+            //console.log(code)
+
+            var dups = code.filter ( (v,i,a) => a.indexOf(v) < i );
+            //console.log(dups)
+
+            dups.map(j => {
+                //console.log(j)
+                Groups.find({
+                    groupcode : j
+                }).then(dt => {
+                    //console.log(dt)
+                    dt.map(l => {
+                        //console.log(l.idparticipant)
+                        Participant.find({
+                            _id : l.idparticipant
+                        }).then(re => {
+                            //console.log(re)
+                            var t = re.map(final => {
+                                var arr = []
+                                var r = final.score
+                                arr.push(r)
+                                //r.split(/\r|\n/)
+                                //console.log(r)
+                                console.log(arr)
+                            })
+
+                            // var r = t
+
+                            
+
+                        })
+                    })
+                })
+            })
+        })
+        
+        //res.json(groups)
+    } catch (error) {
+        res.json({message : error.message})
+    }
 }
 
 module.exports = {
     all,
-    createOne
+    createOne,
+    endOfQuestions
 }

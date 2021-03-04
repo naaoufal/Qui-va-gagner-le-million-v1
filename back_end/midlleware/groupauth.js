@@ -3,7 +3,7 @@ const express = require('express')
 const jwt = require('jsonwebtoken')
 const Participants = require('../models/participants')
 
-module.exports = function groupauth (req, res, next) {
+module.exports = async function groupauth (req, res, next) {
     const autHeader = req.headers['authorization']
     const token = autHeader && autHeader.split(' ')[1]
   
@@ -12,7 +12,7 @@ module.exports = function groupauth (req, res, next) {
     }
   
     const code = jwt.verify(token, process.env.ACCESS_TOKEN_GROUP)
-    const participant = Participants.findById(code.id)
+    const participant = await Participants.findById(code.id)
 
     if(!participant){
         return res.sendStatus(404)

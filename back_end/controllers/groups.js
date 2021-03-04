@@ -1,6 +1,5 @@
-const { json } = require('body-parser')
 const Groups = require('../models/groups')
-const participants = require('../models/participants')
+//const participants = require('../models/participants')
 
 // create new groupe with validation
 function add (req, res) {
@@ -11,7 +10,7 @@ function add (req, res) {
     const query = {idparticipant : groups.idparticipant}
     //console.log(query)
 
-    Groups.find(query, async (err, data) => {
+    Groups.find(query, (err, data) => {
         var parti_id = data.map((info) => {
             return info.idparticipant
         })
@@ -19,7 +18,7 @@ function add (req, res) {
         if(parti_id.length >= 1){
             res.json({message : "You Already Join a Group"})
         } else {
-            const newGroups = await groups.save()
+            const newGroups = groups.save()
             res.json(newGroups)
         }
     }).catch(err => {

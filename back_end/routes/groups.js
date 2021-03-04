@@ -3,11 +3,11 @@ const routerGroups = express.Router()
 const access = require('../midlleware/groupauth')
 const groupCon = require('../controllers/groups')
 
-routerGroups.get('/all', access, groupCon.all)
+routerGroups.get("/all", groupCon.all)
 
-routerGroups.post('/add', access, groupCon.add)
+routerGroups.post("/add", groupCon.add)
 
-routerGroups.post('/joinGroup', access, groupCon.joinGroup)
+routerGroups.post("/joinGroup", groupCon.joinGroup)
 
 
 module.exports = routerGroups

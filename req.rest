@@ -1,5 +1,9 @@
-GET http://localhost:4000/api/participants/all
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTQxNTU5MzF9.KZiZZUD9uNIRlkiJWaCsKJQTREVfaWDdhjjSCRptJU8
+GET http://localhost:3001/api/participants/all
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTQ3MDA3NjN9.-J4qVokxFfq9UUUMJL_iefkWxrq4LIFEDjUmDfJsbsg
+
+###
+GET http://localhost:3001/api/participants/PublicAll
+
 ###
 
 POST http://localhost:4000/api/participants/register
@@ -28,7 +32,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:4000/api/admins/all
+GET http://localhost:3001/api/admins/all
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTQxNTU5MzF9.KZiZZUD9uNIRlkiJWaCsKJQTREVfaWDdhjjSCRptJU8
 
 
@@ -57,8 +61,8 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:4000/api/questions/getOneQuestion
-Authorization: bearer 
+GET http://localhost:3001/api/questions/getOneQuestion
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxNDcyMTI1NH0.mmFvBPTOGdriDpmyIgePDSwVeDr6kpwe_AikxGYz22A
 
 ###
 
@@ -74,25 +78,24 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:4000/api/groups/all
-Authorization: bearer 
+GET http://localhost:3001/api/groups/all
+Authorization : bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxNDcyNDI3OX0.LvMg53NXlU9qI-eJP4kMjYMP3yldOwhH8c-kZ5sNrYw
 
 ###
 
 
-POST http://localhost:4000/api/groups/add
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxNDIxNjAyM30.jubT2Yu6AeXZVt2LuSikvdchEu2AMusKeVzeLA7GE4Y
+POST http://localhost:3001/api/groups/add
 Content-Type: application/json
 
 {
-    "idparticipant" : "6036e1e4fea2275f4cc6578",
-    "groupcode": 888
+    "idparticipant" : "7036d8e7d3f69c05706703ea",
+    "groupcode": 2222
 }
 
 
 ###
 
-POST http://localhost:4000/api/participants/authGroup
+POST http://localhost:3001/api/participants/authGroup
 Content-Type: application/json
 
 {
@@ -101,35 +104,35 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/api/groups/joinGroup
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxNDIxNjAyM30.jubT2Yu6AeXZVt2LuSikvdchEu2AMusKeVzeLA7GE4Y
+POST http://localhost:3001/api/groups/joinGroup
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxNDcyMTI1NH0.mmFvBPTOGdriDpmyIgePDSwVeDr6kpwe_AikxGYz22A
 Content-Type: application/json
 
 {
-    "idparticipant" : "6036e1e4fea2275f04cc6577",
-    "groupcode" : 8888 
+    "idparticipant" : "6036d8e7d3f69c05706703ea",
+    "groupcode" : 1121 
 }
 
 ###
 
-GET http://localhost:4000/api/rounds/all
+GET http://localhost:3001/api/rounds/all
 
 ###
 
-POST http://localhost:4000/api/rounds/addRound
+POST http://localhost:3001/api/rounds/addRound
 Content-Type: application/json
 
 {
     "idgroupmember" : "1111",
-    "idquestion" : "6035a10196764b366ce37533",
+    "idquestion" : "603160b565881e481cb88dc0",
     "idquestiontoken" : "1234"
 }
 
 ###
-GET http://localhost:4000/api/questionTokens/all
+GET http://localhost:3001/api/questionTokens/all
 
 ###
-POST http://localhost:4000/api/questionTokens/addToken
+POST http://localhost:3001/api/questionTokens/addToken
 Content-Type: application/json
 
 {
@@ -139,10 +142,14 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:4000/api/winners/all
+
+GET http://localhost:3001/api/questionTokens/endOfQuestions
 
 ###
-POST http://localhost:4000/api/winners/addWinner
+GET http://localhost:3001/api/winners/all
+
+###
+POST http://localhost:3001/api/winners/addWinner
 Content-Type: application/json
 
 {
