@@ -143,7 +143,10 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3001/api/questionTokens/endOfQuestions
+POST  http://localhost:3001/api/questionTokens/endOfQuestions
+Content-Type: application/json
+
+{}
 
 ###
 GET http://localhost:3001/api/winners/all
@@ -153,5 +156,5 @@ POST http://localhost:3001/api/winners/addWinner
 Content-Type: application/json
 
 {
-    
+
 }

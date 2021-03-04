@@ -98,27 +98,36 @@ function endOfQuestions (req, res) {
                     groupcode : j
                 }).then(dt => {
                     //console.log(dt)
-                    dt.map(l => {
+                    var id = dt.map(l => {
                         //console.log(l.idparticipant)
+                        return l.idparticipant
+                    })
+                    const par = Participant.find({
+                        _id : id
+                    }).then(re => {            
+                        //console.log(re)
+                        var t = re.map(final => {
+                            var r = final.score
+                            return r
+                        })
+                        var final_score = Math.max(...t)
+                        //console.log(final_score)
                         Participant.find({
-                            _id : l.idparticipant
-                        }).then(re => {
-                            //console.log(re)
-                            var t = re.map(final => {
-                                var arr = []
-                                var r = final.score
-                                arr.push(r)
-                                //r.split(/\r|\n/)
-                                //console.log(r)
-                                console.log(arr)
+                            score : final_score
+                        }).then(winner => {
+                            winner.map(f => {
+                                console.log(f)
+                                const winners = new Winners({
+                                    idparticipant : f._id,
+                                    idgroup : j,
+                                    score : f.score
+                                })
+                                const newWinner = winners.save()
+                                res.json({message : "The final Winner of This Game", winner})
                             })
-
-                            // var r = t
-
-                            
-
                         })
                     })
+                    //console.log(par)
                 })
             })
         })

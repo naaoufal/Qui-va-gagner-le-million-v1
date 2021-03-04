@@ -4,17 +4,14 @@ const winnerSchema = new mongoose.Schema({
 
     idparticipant : {
         type : String,
-        ref : 'participants',
-        required : true
+        ref : 'participants'
     },
     idgroup : {
         type : Number,
-        ref : 'groups',
-        required : true
+        ref : 'groups'
     },
     score : {
-        type : Number,
-        required : true
+        type : Number
     }
 
 })

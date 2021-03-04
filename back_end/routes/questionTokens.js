@@ -7,6 +7,6 @@ router.get("/all", quesTokensCon.all)
 
 router.post("/addToken", quesTokensCon.createOne)
 
-router.get("/endOfQuestions", quesTokensCon.endOfQuestions)
+router.post("/endOfQuestions", quesTokensCon.endOfQuestions)
 
 module.exports = router
