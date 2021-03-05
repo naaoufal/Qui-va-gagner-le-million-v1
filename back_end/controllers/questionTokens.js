@@ -89,7 +89,7 @@ function endOfQuestions (req, res) {
 
             //console.log(code)
 
-            var dups = code.filter ( (v,i,a) => a.indexOf(v) < i );
+            var dups = code.filter ( (v,i,a) => a.indexOf(v) < i )
             //console.log(dups)
 
             dups.map(j => {

@@ -13,7 +13,11 @@ const questionSchema = new mongoose.Schema({
     points : {
         type : Number,
         required : true
-    }
+    },
+    answers : [{
+        type : String,
+        require : true
+    }]
 
 })
 

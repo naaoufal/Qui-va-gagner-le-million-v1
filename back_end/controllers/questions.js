@@ -4,7 +4,8 @@ async function add (req, res) {
     const questions = new Questions({
         quest : req.body.quest,
         answer : req.body.answer,
-        points : req.body.points
+        points : req.body.points,
+        answers : req.body.answers
     })
     try {
         const newQuest = await questions.save()

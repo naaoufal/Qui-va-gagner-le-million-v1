@@ -62,18 +62,18 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3001/api/questions/getOneQuestion
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0aV9uYW1lIjoibmFvdWZhbCIsImlhdCI6MTYxNDcyMTI1NH0.mmFvBPTOGdriDpmyIgePDSwVeDr6kpwe_AikxGYz22A
 
 ###
 
-POST http://localhost:4000/api/questions/add
-Authorization: bearer 
+POST http://localhost:3001/api/questions/add
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG5hbWUiOjYwMDExMjIzMywiYWRwYXNzd29yZCI6IjAwMDAiLCJpYXQiOjE2MTQ3MDA3NjN9.-J4qVokxFfq9UUUMJL_iefkWxrq4LIFEDjUmDfJsbsg
 Content-Type: application/json
 
 {
     "quest" : "guess my favorite language",
-    "answer" : "arabe",
-    "points" : 10
+    "answer" : "surf",
+    "points" : 10,
+    "answers" : ["Arabe", "English", "Spanish", "Chinese"]
 }
 
 ###
@@ -88,8 +88,8 @@ POST http://localhost:3001/api/groups/add
 Content-Type: application/json
 
 {
-    "idparticipant" : "7036d8e7d3f69c05706703ea",
-    "groupcode": 2222
+    "idparticipant" : "7036d8e7d3f69c05706703",
+    "groupcode": 11
 }
 
 
@@ -152,9 +152,9 @@ Content-Type: application/json
 GET http://localhost:3001/api/winners/all
 
 ###
-POST http://localhost:3001/api/winners/addWinner
-Content-Type: application/json
+# POST http://localhost:3001/api/winners/addWinner
+# Content-Type: application/json
 
-{
+# {
 
-}
+# }

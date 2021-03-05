@@ -15,7 +15,7 @@ function add (req, res) {
             return info.idparticipant
         })
         console.log(parti_id.length)
-        if(parti_id.length >= 1){
+        if(parti_id.length >= 2){
             res.json({message : "You Already Join a Group"})
         } else {
             const newGroups = groups.save()

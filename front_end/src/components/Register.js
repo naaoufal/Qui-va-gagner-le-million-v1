@@ -39,7 +39,7 @@ function Register (redi) {
             if(data){
                 alert("Participant Subscribe Successfully")
                 clearInput()
-                redi.history.push('/User')
+                redi.history.push('/LoginUser')
                 
             } else {
                 alert("Error")

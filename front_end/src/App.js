@@ -7,8 +7,9 @@ import User from './components/User'
 import LoginUser from './components/LoginUser'
 import Validate from './components/Validation'
 import Group from './components/Group'
-import AddFirst from './components/FirstMember'
-import AddSecond from './components/SecondMember'
+import FirstMember from './components/FirstMember'
+import SecondMember from './components/SecondMember'
+import Round from './components/Round'
 
 
 
@@ -24,8 +25,8 @@ function App() {
           <Route path="/LoginUser" exact component={LoginUser} />
           <Route path="/Validation" exact component={Validate} />
           <Route path="/Group" exact component={Group} />
-          <Route path="/FirstMember" exact component={AddFirst} />
-          <Route path="/AddSecond" exact component={AddSecond} />
+          <Route path="/FirstMember" exact component={FirstMember} />
+          <Route path="/Round" exact component={Round} />
         </Switch>
       </div>
     </Router>
