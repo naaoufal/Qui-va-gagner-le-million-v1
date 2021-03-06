@@ -8,8 +8,9 @@ import LoginUser from './components/LoginUser'
 import Validate from './components/Validation'
 import Group from './components/Group'
 import FirstMember from './components/FirstMember'
-import SecondMember from './components/SecondMember'
 import Round from './components/Round'
+import QuestionToken from './components/QuestionToken'
+import SecondRandom from './components/SecondRandom'
 
 
 
@@ -27,6 +28,8 @@ function App() {
           <Route path="/Group" exact component={Group} />
           <Route path="/FirstMember" exact component={FirstMember} />
           <Route path="/Round" exact component={Round} />
+          <Route path="/Round" exact component={QuestionToken} />
+          <Route path="/Round" exact component={SecondRandom} />
         </Switch>
       </div>
     </Router>

@@ -136,9 +136,9 @@ POST http://localhost:3001/api/questionTokens/addToken
 Content-Type: application/json
 
 {
-    "idquestion" : "60315e60bce5524bd0ce71a8",
+    "idquestion" : "6042aad54a009280042995d9",
     "participantanswer" : "24",
-    "idparticipant" : "6036e1e4fea2275f04cc6577"
+    "idparticipant" : "6036d8e7d3f69c05706703ea"
 }
 
 ###
