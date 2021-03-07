@@ -18,9 +18,8 @@ function Round () {
         <div className="row">
             <h1>the round is started & the Group ID is : {code || codeSec}</h1>
             <center>
-                <h2>Please Select Your Answer :</h2>
+                <h2>Please choise Your Answer :</h2>
                 <SecondRandom />
-                <QuestionToken />
             </center>
             <div>
                 <button onClick={clearAll} className="btn btn-danger">Exit</button>

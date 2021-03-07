@@ -25,7 +25,7 @@ function Group () {
                 })
                 //console.log(dataFull)
                 var result = dataFull.filter(l => l.groupcode == codeSec || l.groupcode == code)
-                //console.log(result)
+                console.log(result.length)
                 result.map(i => {
                     //console.log(i.idparticipant)
                     if(i.idparticipant != id){

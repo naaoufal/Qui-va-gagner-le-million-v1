@@ -2,62 +2,57 @@ import e from "cors"
 import { set } from "mongoose"
 import React, { useEffect, useState } from "react"
 import Round2 from "./Round2"
+import $, { data } from 'jquery'
 
 function SecondRandom () {
 
-    const [state, setState] = useState([])
+    const [state, setState] = useState([{
+        quest : ""
+    }])
+    const [idQues, setId] = useState([])
     const [randAnswers, setAns] = useState([])
     const id = localStorage.getItem('ID')
-    const secId = localStorage.getItem('secID')
-    
-    //const arr1 = []
-    //useEffect(() => {
-
-    // bt.addEventListener('click', function () {
-    //     const val = document.querySelector('#sub').value
-    //     console.log(val)
-    // })
+    const code = localStorage.getItem('groupCode')
+    const codeSec = localStorage.getItem('code')
 
 
-    
-    
-        // function subAnswer () {
-        //     const bt = document.querySelector('#cli').value
-        //     console.log(bt)
-            
-        // }
-
-        //setInterval( 
         function Test1() {
             fetch("http://localhost:3001/api/questions/allPublic").then(res => {
                 return res.json()
             }).then(data => {
-                //console.log(data)
-                //setState(data[0])
-               //arr1.push(data[0])
+                //console.log(data[0]._id)
+                localStorage.setItem('idQuest', data[0]._id)
                 setState(data)
                 setAns(data[0].answers)
-                
-                
-                
-                //localStorage.setItem('first', arr1)
-                //window.location.reload(true)
-                //arr.push(data)
-                //console.log(arr)
+
             })
             
         }
-        //console.log(arr1)
-        //Test1()
-        
-        //, 9000)
-    //})
+
+    const d = localStorage.getItem('idQuest')
 
 
+    function IfExist() {
+        fetch("http://localhost:3001/api/rounds/all").then(res => {
+            return res.json()
+        }).then(data => {
+            //console.log(data)
+            data.map(o => {
+                //console.log(o)
+                if(o.idgroupmember == code || o.idgroupmember == codeSec){
+                    console.log(o)
+                    if(o.idquestion === d){
+                        setTimeout(window.location.href = "/Round2", 3000)
+                    } else {
+                        console.log(false)
+                    }
+                }
+            })
+        })
+    }
 
-        // console.log(state[0]._id)
-        //console.log(randAnswers)
         useEffect(() => {
+            Test1()
             //console.log(id)
             const test = document.querySelector('#di')
             test.addEventListener('click', (e) => {
@@ -67,33 +62,42 @@ function SecondRandom () {
                 const val = e.target.dataset.id
                 
                 if(pressBtn){
-                    //console.log(val, id)
+                    IfExist()
+                    Test1()
+                    console.log(val, id, localStorage.getItem('idQuest'))
                     fetch("http://localhost:3001/api/questionTokens/addToken", {
                         method : 'POST',
                         headers : {
                             'Content-Type' : 'application/json'
                         },
                         body : JSON.stringify({
-                            idquestion : state[0]._id,
+                            idquestion : localStorage.getItem('idQuest'),
                             participantanswer : val,
                             idparticipant : id
+                        })
+                    })
+
+                    // push data to round after questionToken : 
+                    fetch("http://localhost:3001/api/rounds/addRound", {
+                        method : 'POST',
+                        headers : {
+                            'Content-Type' : 'application/json'
+                        },
+                        body : JSON.stringify({
+                            idgroupmember : code || codeSec,
+                            idquestion : localStorage.getItem('idQuest')
                         })
                     }).then(res => {
                         return res.json()
                     }).then(data => {
-                        console.log(data.message)
-                        // if(data.message === "Answer Correct !!!" || data.message === "Answer Is not Correct" || !data){
-                        //     setTimeout(window.location.href = "/Round2", 3000)
-                        // }
+                        console.log(data)
+                        if(data){
+                            window.location.href = "/Round2"
+                        }
                     })
                 }
             })
-            Test1()
         }, [])
-
-
-    // const dt = localStorage.getItem('first')
-    // console.log(dt)
 
     return (
         <div>
