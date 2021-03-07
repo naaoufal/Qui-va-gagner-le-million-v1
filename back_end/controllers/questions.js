@@ -1,4 +1,5 @@
 const Questions = require('../models/questions')
+const Next = require('../models/next')
 
 async function add (req, res) {
     const questions = new Questions({
@@ -24,11 +25,22 @@ async function all (req, res) {
     }
 }
 
-async function ShowRandomQuestions (req, res) {
+async function allPublic (req, res) {
     try {
-        const ranQuestion=  await Questions.aggregate([{ $sample: { size: 1 } }]);
+        const questions = await Questions.find()
+        res.json(questions)
+    } catch (error) {
+        res.json({message : error.message})
+    }
+}
+
+async function ShowRandomQuestions (req, res) {
+    const next = new Next()
+    try {
+        const ranQuestion =  await Questions.aggregate([{ $sample: { size: 1 } }]);
         res.json(ranQuestion)
-        console.log(ranQuestion)
+        //next = ranQuestion.save()
+        //console.log(ranQuestion)
     } catch (error) {
         res.json({ message : error.message });
     }
@@ -37,5 +49,6 @@ async function ShowRandomQuestions (req, res) {
 module.exports = {
     add,
     all,
-    ShowRandomQuestions
+    ShowRandomQuestions,
+    allPublic
 }

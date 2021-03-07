@@ -1,4 +1,5 @@
 const express = require("express")
+const socket = require("socket.io")
 const cors = require('cors');
 require("dotenv").config()
 const connectDB = require("./back_end/config/mongodb")
@@ -21,4 +22,5 @@ app.use("/api/winners", require("./back_end/routes/winners.js"))
 
 
 // start the server
-app.listen(3001, () => console.log("the server is started"));
+var server = app.listen(3001, () => console.log("the server is started"));
+var io = socket(server)

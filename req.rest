@@ -48,7 +48,6 @@ Content-Type: application/json
     "password" : "azer"
 }
 
-
 ###
 
 POST http://localhost:3001/api/admins/login
@@ -61,7 +60,11 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3001/api/questions/getOneQuestion
+GET http://localhost:3001/api/questions/allPublic
+
+###
+
+GET  http://localhost:3001/api/questions/getOneQuestion
 
 ###
 
@@ -136,9 +139,9 @@ POST http://localhost:3001/api/questionTokens/addToken
 Content-Type: application/json
 
 {
-    "idquestion" : "6042aad54a009280042995d9",
-    "participantanswer" : "24",
-    "idparticipant" : "6036d8e7d3f69c05706703ea"
+    "idquestion" : "6042a90a4a009280042995d8",
+    "participantanswer" : "7",
+    "idparticipant" : "6036e1e4fea2275f04cc6577"
 }
 
 ###

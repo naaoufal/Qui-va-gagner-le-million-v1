@@ -11,6 +11,8 @@ import FirstMember from './components/FirstMember'
 import Round from './components/Round'
 import QuestionToken from './components/QuestionToken'
 import SecondRandom from './components/SecondRandom'
+import Round2 from './components/Round2'
+import Round3 from './components/Round3'
 
 
 
@@ -30,6 +32,8 @@ function App() {
           <Route path="/Round" exact component={Round} />
           <Route path="/Round" exact component={QuestionToken} />
           <Route path="/Round" exact component={SecondRandom} />
+          <Route path="/Round2" exact component={Round2} />
+          <Route path="/Round3" exact component={Round3} />
         </Switch>
       </div>
     </Router>

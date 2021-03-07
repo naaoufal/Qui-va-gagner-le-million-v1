@@ -35,7 +35,12 @@ function Group () {
                 })
 
                 if(result.length == 2){
-                    window.location.href = "/Round"
+                    fetch("http://localhost:3001/api/questions/getOneQuestion").then(res => {
+                        return res.json()
+                    }).then(data => {
+                        console.log(data)
+                    })
+                    setTimeout(window.location.href = "/Round", 4000)
                 } else {
                     window.location.href = "/Group"
                 }

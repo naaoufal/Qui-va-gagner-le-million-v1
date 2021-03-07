@@ -11,5 +11,7 @@ routerQuestions.get('/all', access, questCon.all)
 
 routerQuestions.get("/getOneQuestion", questCon.ShowRandomQuestions)
 
+routerQuestions.get('/allPublic', questCon.allPublic)
+
 
 module.exports = routerQuestions
