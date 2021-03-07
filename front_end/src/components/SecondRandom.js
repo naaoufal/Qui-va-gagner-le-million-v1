@@ -22,6 +22,7 @@ function SecondRandom () {
             }).then(data => {
                 //console.log(data[0]._id)
                 localStorage.setItem('idQuest', data[0]._id)
+                
                 setState(data)
                 setAns(data[0].answers)
 
@@ -30,6 +31,7 @@ function SecondRandom () {
         }
 
     const d = localStorage.getItem('idQuest')
+    
 
 
     function IfExist() {
