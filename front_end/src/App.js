@@ -14,6 +14,7 @@ import SecondRandom from './components/SecondRandom'
 import Round2 from './components/Round2'
 import Round3 from './components/Round3'
 import Winner from './components/Winner'
+import Pagination from './components/Pagination'
 
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/Round2" exact component={Round2} />
           <Route path="/Round3" exact component={Round3} />
           <Route path="/Winner" exact component={Winner} />
+          <Route path="/Pagination" exact component={Pagination} />
         </Switch>
       </div>
     </Router>
