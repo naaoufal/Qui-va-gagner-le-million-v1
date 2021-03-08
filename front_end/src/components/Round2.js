@@ -124,7 +124,7 @@ function Round2 (){
             <div className="row">
                 <div className="col-md">
                     <center>
-                        <div className="panel panel-warning">
+                        <div className="panel panel-success">
                             <div className="panel-heading">
                                 <h3>The Question is : {c}</h3>
                             </div>

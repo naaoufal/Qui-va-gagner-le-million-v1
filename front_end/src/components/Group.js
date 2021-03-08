@@ -40,7 +40,7 @@ function Group () {
                     }).then(data => {
                         console.log(data)
                     })
-                    setTimeout(window.location.href = "/Round", 4000)
+                    setTimeout(window.location.href = "/Round", 1000)
                 } else {
                     window.location.href = "/Group"
                 }

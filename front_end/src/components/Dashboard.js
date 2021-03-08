@@ -6,6 +6,7 @@ function Dashboard (redi) {
     
     const [info, setInfo] = useState([])
     const [participants, setParticipants] = useState([])
+    const [quests, setQuestions] = useState([])
 
     useEffect (() => {
         function fetchAdmin() {
@@ -83,6 +84,12 @@ function Dashboard (redi) {
             return res.json()
         }).then(data => {
             setParticipants(data)
+        })
+
+        fetch("http://localhost:3001/api/questions/allPublic").then(res => {
+            return res.json()
+        }).then(data => {
+            setQuestions(data)
         })
     }, [])
 
@@ -233,14 +240,39 @@ function Dashboard (redi) {
                 </div>
             </div>
         </div>
-            <div id="addnew" className="col-sm-5">
-                <h3></h3>
-                <div>
-                    <center>
-                    
-                    </center>
+        <div className="row">
+            <div className="col-md">
+                <div className="panel panel-info">
+                    <div className="panel-heading">
+                        <h3>Show All Questions</h3>
+                    </div>
+                    <div className="panel-body">
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Quest</th>
+                                    <th>Answer</th>
+                                    <th>Score</th>
+                                    <th>Pssible Answers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {quests.map((o) => (
+                                    <tr>
+                                        <td>{o._id}</td>
+                                        <td>{o.quest}</td>
+                                        <td>{o.answer}</td>
+                                        <td>{o.points}</td>
+                                        <td>{o.answers.toString()}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+        </div>
     </div>
     )
 }
