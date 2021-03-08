@@ -32,10 +32,23 @@ function Winnner () {
     }, [])
 
     return (
-        <div>
-            <h1>The Final Winner is : {name.fullname}</h1>
+        <div className="container"><br />
+            <div className="row">
+               <center>
+                    <div className="col-md">
+                        <div className="panel panel-danger">
+                            <div className="panel-heading">
+                                <h3>The Winner is</h3>
+                            </div>
+                            <div className="panel-body">
+                                <h3>{name.fullname}</h3>
+                            </div>
+                        </div>
+                    </div>
+               </center>
+            </div>
             <center>
-                <button onClick={clearAll} className="btn btn-danger">Exit</button>
+                <button onClick={clearAll} className="btn btn-danger btn-lg">Exit</button>
             </center>
         </div>
     )

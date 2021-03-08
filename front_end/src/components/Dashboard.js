@@ -120,81 +120,128 @@ function Dashboard (redi) {
     }
 
     return (
+    <div className="container"><br/>
         <div className="row">
-            <h2>Admin Panel</h2><button id="logout" className="btn btn-primary" onClick={clearLocalStorage}>LogOut</button>
-            <h4>Show All Participants</h4>
-            <div id="panel">
-                <table className="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>fullname</th>
-                            <th>age</th>
-                            <th>email</th>
-                            <th>phone</th>
-                            <th>is Valid</th>
-                            <th>Online</th>
-                            <th>password</th>
-                            <th>score</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {participants.map((i) => (
-                            <tr key={i._id}>
-                                <td>{i._id}</td>
-                                <td>{i.fullname}</td>
-                                <td>{i.age}</td>
-                                <td>{i.email}</td>
-                                <td>{i.phone}</td>
-                                <td>{JSON.stringify(i.is_valid)}</td>
-                                <td>{JSON.stringify(i.online)}</td>
-                                <td>{i.password}</td>
-                                <td>{i.score}</td>
-                                <td><button onClick={()=>validateParti(i._id)} className="btn btn-danger">Valider</button></td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-            <div id="admin" className="col-sm-5">
-                <h3>Show All Admins</h3>
-                <table className="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Fullname</th>
-                            <th>Phone</th>
-                            <th>Password</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {info.map((i) => (
-                        <tr>
-                            <td>{i._id}</td>
-                            <td>{i.fullname}</td>
-                            <td>{i.phone}</td>
-                            <td>{i.password}</td>
-                        </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
-            <div id="addnew" className="col-sm-5">
-                <h3>Add New Admin</h3>
-                <div>
-                    <center>
-                    <span>Enter Your Full Name</span>
-                    <input id="full" type="text" className="form-control" />
-                    <span>Enter Your Phone</span>
-                    <input id="phone" type="text" className="form-control" />
-                    <span>Enter Password for Admin</span>
-                    <input id="password" type="password" className="form-control" />
-                    <button type="submit" onClick={addNew} className="btn btn-primary">Add New</button>
-                    </center>
+            <div className="col-md">
+                <div className="panel panel-info">
+                    <div className="panel-heading">
+                        <h3>Admin Panel</h3>
+                    </div>
+                    <div className="panel-body">
+                        <button id="logout" className="btn btn-primary" onClick={clearLocalStorage}>LogOut</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div className="row">
+            <div className="col-md">
+                <div className="panel panel-info">
+                    <div className="panel-heading">
+                        <h3>Show All Participants</h3>
+                    </div>
+                    <div className="panel-body">
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>fullname</th>
+                                    <th>age</th>
+                                    <th>email</th>
+                                    <th>phone</th>
+                                    <th>is Valid</th>
+                                    <th>Online</th>
+                                    <th>password</th>
+                                    <th>score</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {participants.map((i) => (
+                                    <tr key={i._id}>
+                                        <td>{i._id}</td>
+                                        <td>{i.fullname}</td>
+                                        <td>{i.age}</td>
+                                        <td>{i.email}</td>
+                                        <td>{i.phone}</td>
+                                        <td>{JSON.stringify(i.is_valid)}</td>
+                                        <td>{JSON.stringify(i.online)}</td>
+                                        <td>{i.password}</td>
+                                        <td>{i.score}</td>
+                                        <td><button onClick={()=>validateParti(i._id)} className="btn btn-danger">Valider</button></td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="row">
+            <div className="col-md-6">
+                <div className="panel panel-warning">
+                    <div className="panel-heading">
+                        <h3>Show All Admins</h3>
+                    </div>
+                    <div className="panel-body">
+                    <table className="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Fullname</th>
+                                <th>Phone</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {info.map((i) => (
+                            <tr>
+                                <td>{i._id}</td>
+                                <td>{i.fullname}</td>
+                                <td>{i.phone}</td>
+                                <td>{i.password}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+            </div>
+            <div className="col-md-6">
+                <div className="panel panel-warning">
+                    <div className="panel-heading">
+                        <h3>Add New Admin</h3>
+                    </div>
+                    <div className="panel-boy">
+                        <div className="form-group">
+                            <label className="col-sm-4 control-label">Enter Your Full Name : </label>
+                            <div className="col-sm-8"><input id="full" type="text" className="form-control" /></div>
+                        </div>
+                        <div className="form-group">
+                            <label className="col-sm-4 control-label">Enter Your Phone : </label>
+                            <div className="col-sm-8"><input id="phone" type="text" className="form-control" /></div>
+                        </div>
+                        <div className="form-group">
+                            <label className="col-sm-4 control-label">Enter Your Password : </label>
+                            <div className="col-sm-8">
+                                <input id="password" type="password" className="form-control" />
+                            </div>
+                        </div>
+                        <div className="form-group text-center">
+                            <button type="submit" onClick={addNew} className="btn btn-warning">Add New</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div id="addnew" className="col-sm-5">
+                <h3></h3>
+                <div>
+                    <center>
+                    
+                    </center>
+                </div>
+            </div>
+    </div>
     )
 }
 

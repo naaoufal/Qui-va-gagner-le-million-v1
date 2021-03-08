@@ -7,9 +7,18 @@ function FirstMember() {
     //setTimeout(refreshData(), 3000)
 
     return (
-        <div className="col-md-5">
+        <div className="row">
+            <div className="col-md">
             {/* <input value={data._id} /> */}
-            <p id="clear">First Player ID is : {data._id}</p>
+                <div className="panel panel-warning">
+                    <div className="panel-heading">
+                        <h3>User Information :</h3>
+                    </div>
+                    <div className="panel-body">
+                        <h3 id="clear">Player ID is : {data._id}</h3>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

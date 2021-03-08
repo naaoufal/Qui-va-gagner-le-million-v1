@@ -49,18 +49,24 @@ function Group () {
     })
 
     return (
-        <div>
-            <h1>wait for others players ... </h1>
+        <div className="container"><br />
             <div className="row">
-                <h1>Group Code {code || codeSec}</h1>
-                <br/>
-                <FirstMember />
-                <div className="col-md-5">
-                    {/* <input value={localStorage.getItem('secID')} /> */}
-                    <p>Second Player ID is : {secId}</p>
+                <div className="col-md">
+                    <div className="panel panel-info">
+                        <div className="panel-heading">
+                            <h3>Group Code is : {code || codeSec}</h3>
+                        </div>
+                        <div className="panel-body">
+                            <p>wait for others players ...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <br/>
+            <FirstMember />
+                {/* <div className="col-md-5"> */}
+                    {/* <input value={localStorage.getItem('secID')} /> */}
+                    {/* <p>Second Player ID is : {secId}</p>
+                </div> */}
             <center><button onClick={clearAll} className="btn btn-danger">Exit</button></center>
         </div>
     )

@@ -1,8 +1,5 @@
-import e from "cors"
-import { set } from "mongoose"
 import React, { useEffect, useState } from "react"
-import Round2 from "./Round2"
-import $, { data } from 'jquery'
+
 
 function SecondRandom () {
 
@@ -102,9 +99,11 @@ function SecondRandom () {
         }, [])
 
     return (
-        <div>
-            <p>The Question is : {state[0].quest}</p>
-            <div className="col-md-5" id="di">
+        <div className="panel panel-success">
+            <div className="panel-heading">
+                <h3>The Question is : {state[0].quest}</h3>
+            </div>
+            <div className="panel-body" id="di">
                 {randAnswers.map(i => {
                     //console.log(i);
                     return <button data-id={i} id="sub" className="btn btn-info" >{i}</button>

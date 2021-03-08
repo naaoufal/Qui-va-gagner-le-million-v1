@@ -5,6 +5,10 @@
 
 
 #full, #phone, #password{
-  width: 60%;
-  
+  margin: 6px;  
+}
+
+#sub{
+  margin: 40px;
+  padding: 20px 40px;
 }

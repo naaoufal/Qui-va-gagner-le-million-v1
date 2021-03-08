@@ -111,23 +111,34 @@ function Round2 (){
 
 
     return(
-        <div className="row">
-            <h1>the round is started & the Group ID is : {code || codeSec}</h1>
-            <center>
-                <h2>Please choise Your Answer</h2>
-                <div>
-                    <p>The Question is : {c}</p>
-                    <div className="col-md-5" id="di">
-                        {randAnswers1.map(i => {
-                            //console.log(i);
-                            return <button data-id={i} id="sub" className="btn btn-info" >{i}</button>
-                        })}
+        <div className="container"><br/>
+            <div className="row">
+                <div className="col-md">
+                    <div className="panel panel-info">
+                        <div className="panel-heading">
+                            <h3>The Round is Started & The Group ID is : {code || codeSec}</h3>
+                        </div>
                     </div>
                 </div>
-            </center>
-            <div>
-                <button onClick={clearAll} className="btn btn-danger">Exit</button>
             </div>
+            <div className="row">
+                <div className="col-md">
+                    <center>
+                        <div className="panel panel-warning">
+                            <div className="panel-heading">
+                                <h3>The Question is : {c}</h3>
+                            </div>
+                            <div className="panel-body" id="di">
+                                {randAnswers1.map(i => {
+                                    //console.log(i);
+                                    return <button data-id={i} id="sub" className="btn btn-info" >{i}</button>
+                                })}
+                            </div>
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <center><button onClick={clearAll} className="btn btn-danger btn-lg">Exit</button></center>
         </div>
     )
 }

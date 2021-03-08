@@ -93,23 +93,46 @@ function User (redi) {
     
 
     return (
-        <div className="">
-            <h2>Participant Page</h2>
-            <button onClick={clearLocalStorage} className="btn btn-primary">Log Out</button>
-            <br/>
-            <p>Your ID is : {dt._id}</p>
-            <p>Your Name is : {dt.fullname}</p>
-            <p>Your Email is : {dt.email}</p>
-            <div>
-                <button onClick={createGroup} className="btn btn-info" id="create">Create Group</button>
-                <button className="btn btn-info" id="join" onClick={joinGroup}>Join Group</button>
+        <div className="container"><br/>
+            <div className="row">
+                <div class="col-md">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="">User Panel</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Your ID is : {dt._id}</p>
+                            <p>Your Name is : {dt.fullname}</p>
+                            <p>Your Email is : {dt.email}</p>
+                            <button onClick={clearLocalStorage} className="btn btn-primary">Log Out</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="divjoin">
-                <center>
-                    <label>Enter Your Group Code :</label>
-                    <input id="codyGroup" className="form-control" placeholder="Put code Here" />
-                </center>
-            </div>
+            <div className="row">
+                <div className="col-md-6">
+                    <div className="panel panel-info">
+                        <div className="panel-heading">
+                            <h3>Create a New Group</h3>
+                        </div>
+                        <div className="panel-body">
+                            <button onClick={createGroup} className="btn btn-info" id="create">Create Group</button>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-6">
+                    <div className="panel panel-warning">
+                        <div className="panel-heading">
+                            <h3>Join a Group</h3>
+                        </div>
+                        <div className="panel-body">
+                            <label>Enter Your Group Code :</label>
+                            <input id="codyGroup" className="form-control" placeholder="Put code Here" /><br/>
+                            <button className="btn btn-warning" id="" onClick={joinGroup}>Join Group</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
         </div>
     )
 }
