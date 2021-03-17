@@ -74,11 +74,6 @@ async function createOne (req, res) {
 
 function endOfQuestions (req, res) {
 
-    // const winner = new Winners({
-    //     idparticipant : req.body.idparticipant,
-    //     idgroup : req.body.idgroup,
-    //     score : req.body.score
-    // })
 
     try {
         Groups.find().then(data => {

@@ -10,6 +10,11 @@ async function all (req, res) {
     }
 }
 
+
+async function deleteAll () {
+    await Winners.deleteMany()
+}
+
 async function createOne (req, res) {
     const winner = new Winners({
         idparticipant : req.body.idparticipant,

@@ -3,6 +3,7 @@ const socket = require("socket.io")
 const cors = require('cors');
 require("dotenv").config()
 const connectDB = require("./back_end/config/mongodb")
+const MongoPaging = require('mongo-cursor-pagination')
 const app = express()
 
 connectDB()

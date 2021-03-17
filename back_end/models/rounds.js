@@ -16,8 +16,7 @@ const roundSchema = new mongoose.Schema({
     },
     idquestiontoken : {
         type : String,
-        ref : 'questionTokens',
-        required : true
+        ref : 'questionTokens'
     }
 
 })

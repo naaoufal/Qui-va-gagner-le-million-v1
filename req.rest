@@ -126,9 +126,9 @@ POST http://localhost:3001/api/rounds/addRound
 Content-Type: application/json
 
 {
-    "idgroupmember" : "1111",
-    "idquestion" : "603160b565881e481cb88dc0",
-    "idquestiontoken" : "1234"
+    "idgroupmember" : "8151",
+    "idquestion" : "6042a90a4a009280042995d8",
+    "idquestiontoken" : ""
 }
 
 ###

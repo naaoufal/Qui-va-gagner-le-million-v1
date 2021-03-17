@@ -70,7 +70,7 @@ async function edit (req, res) {
     }
     const id = req.params.id
     Participants.findByIdAndUpdate(id, req.body, { useFindAndModify: false }).then(data => {
-        console.log(data.email)
+        //console.log(data.email)
         if (!data) {
             res.send({
               message: `they is no participant !`
